@@ -79,3 +79,6 @@ td {
 td p {
     margin: 0;
 }
+.text-color-white{
+    color:white !important;
+}

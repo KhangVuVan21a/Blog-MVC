@@ -1,0 +1,121 @@
+﻿@model IEnumerable<BlogMVC.Models.Blog>
+
+@{
+    ViewBag.Title = "Searching";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var address = "";
+}
+
+
+<div>
+    <h2>Searching</h2>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <p>
+                Title: @Html.TextBox("title","")
+                <input type="submit" value="Filter" />
+            </p>
+        }
+    </div>
+    <div class="">
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.shortDetail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.detail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.thumb)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.datePublic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.category.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Positions)
+                </th>
+                <th>
+                    Edit
+                </th>
+                <th>
+                    Detail
+                </th>
+                <th>
+                    Delete
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shortDetail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.detail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.thumb)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.datePublic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category.Title)
+                    </td>
+                    <td>
+                        @foreach (var position in item.Positions)
+                        {
+                            if (position.BlogId == item.ID)
+                            {
+                                address += position.address + " ";
+                            }
+                        }
+                        @Html.DisplayFor(modelItem => address)
+                        @{
+                            address = "";
+                        }
+                    </td>
+                    <td>
+                        <button class="btn btn-primary  ">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "color-text-white" })
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary ">
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "color-text-white" })
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger">
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "color-text-white" })
+                        </button>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
