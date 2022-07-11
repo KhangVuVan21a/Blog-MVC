@@ -4,15 +4,17 @@
     ViewBag.Title = "Index";
     var address = "";
 }
-<div>
-    <div class="">
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+<div class="border-layout ">
+    <div class="header-title">
         <h2>Index</h2>
     </div>
     <div class="">
         <table class="table table-bordered">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model=> model.ID)
+                    @Html.DisplayNameFor(model => model.ID)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.title)
@@ -51,60 +53,60 @@
 
             @foreach (var item in Model)
             {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.shortDetail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.detail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.thumb)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.datePublic)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.category.Title)
-            </td>
-            <td>
-                @foreach (var position in item.Positions)
-                {
-                    if (position.BlogId == item.ID)
-                    {
-                        address += position.address + " ";
-                    }
-                }
-                @Html.DisplayFor(modelItem => address)
-                @{
-                    address = "";
-                }
-            </td>
-            <td>
-                <button class="btn btn-primary  ">
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "color-text-white" })
-                </button>
-            </td>
-            <td>
-                <button class="btn btn-primary ">
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "color-text-white" })
-                </button>
-            </td>
-            <td>
-                <button class="btn btn-danger">
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "color-text-white" })
-                </button>
-            </td>
-        </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shortDetail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.detail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.thumb)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.datePublic)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category.Title)
+                    </td>
+                    <td>
+                        @foreach (var position in item.Positions)
+                        {
+                            if (position.BlogId == item.ID)
+                            {
+                                address += position.address + " ";
+                            }
+                        }
+                        @Html.DisplayFor(modelItem => address)
+                        @{
+                            address = "";
+                        }
+                    </td>
+                    <td>
+                        <button class="btn btn-primary  ">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "color-text-white" })
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary ">
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "color-text-white" })
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger">
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "color-text-white" })
+                        </button>
+                    </td>
+                </tr>
             }
         </table>
     </div>

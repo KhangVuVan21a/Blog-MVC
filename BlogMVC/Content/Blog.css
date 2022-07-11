@@ -19,8 +19,12 @@
 
 .header-title {
     padding-top: 1em;
-    text-align: center;
-    color: white;
+    padding-bottom:0.3em;
+    padding-left:1em;
+    background-color: gainsboro;
+    color: black;
+    border-start-end-radius:0.3em;
+    border-start-start-radius:0.3em;
 }
 
 .menu-position {
@@ -81,4 +85,30 @@ td p {
 }
 .text-color-white{
     color:white !important;
+}
+button>a{
+    color:white;
+}
+a{
+    color:black;
+}
+.border-layout {
+    padding: 2em;
+    background-color:white;
+}
+
+body {
+    padding-top: 0px !important;
+    padding-bottom: 0px!important;
+}
+.background-body {
+    background-color: #e4e5e6;
+}
+.w-100{
+   min-width:100% !important;
+}
+.border-1{
+    border: solid 1px gray;
+    border-radius: 0.3em;
+
 }

@@ -11,7 +11,9 @@ namespace BlogMVC.Models
     {
         public int ID { get; set; }
         public string title { get; set; }
+        [DataType(DataType.MultilineText)]
         public string shortDetail { get; set; }
+        [DataType(DataType.MultilineText)]
         public string detail { get; set; }
         public string thumb { get; set; }
         public bool status { get; set; }
